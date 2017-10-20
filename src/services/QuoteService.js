@@ -34,7 +34,6 @@ function getQuote (min = 23, max = 50, varyCase = false, removeSpaces = true) {
     if (removeSpaces) {
       quote = quote.replace(spaceRegex, '')
     }
-    console.log(quote.length)
   } while (quote.length < min || max < quote.length)
 
   return quote
