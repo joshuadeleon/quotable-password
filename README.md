@@ -1,6 +1,8 @@
-# quotable-password
+# Quotable Password Generator
 
-> Generates random strong passwords using quote generators
+Generates random strong passwords using notable quotations - WIP
+
+[quotablepassword.com](http://quotablepassword.com)
 
 ## Build Setup
 
@@ -26,5 +28,3 @@ npm run e2e
 # run all tests
 npm test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
