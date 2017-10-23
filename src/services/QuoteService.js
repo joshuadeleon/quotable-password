@@ -1,8 +1,3 @@
-// import Axios from 'axios'
-
-// const apiUrl = 'https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en'
-// const apiUrl = 'https://talaikis.com/api/quotes/random/'
-
 // file currently has a minimum of 23 and maximum of 208
 const quotes = require('../assets/quotes.json')
 const spaceRegex = /\s/g
@@ -24,19 +19,21 @@ function getExtremeValues () {
 }
 
 function getQuote (min = 23, max = 50, varyCase = false, removeSpaces = true) {
-  var quote = null
+  var item = null
   do {
     let count = quotes.length
     let randomInt = getRandomInt(0, count)
-    quote = quotes[randomInt].quoteText
+    item = quotes[randomInt]
 
     // Replace spaces
     if (removeSpaces) {
-      quote = quote.replace(spaceRegex, '')
+      item.password = item.quote.replace(spaceRegex, '')
+    } else {
+      item.password = item.quote
     }
-  } while (quote.length < min || max < quote.length)
+  } while (item.length < min || max < item.length)
 
-  return quote
+  return item
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random

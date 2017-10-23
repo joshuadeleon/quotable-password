@@ -14,35 +14,42 @@
       <div class="column-6 textcenter">
         <div class="card quotablepassword">
           <div class="card-content">
-            <h2 class="subtitle is-3">{{ quote }}</h2>
+            <h2 class="subtitle is-3" v-if="entry && entry.password">{{ entry.password }}</h2>
           </div>
         </div>
       </div>
     </div>
     <div class="columns is-centered is-mobile">
       <div class="column-6 textcenter">
-        <button class="button generate-quote-button" v-on:click="setQuote">Generate</button>
+        <button class="button is-large generate-quote-button" v-on:click="setQuote">Generate</button>
       </div>
+    </div>
+    <div class="columns is-centered is-mobile" v-if="entry">
+      <QuoteInfo class="quote-info" :entry="entry"></QuoteInfo>
     </div>
   </div>
 </template>
 
 <script>
 import QuoteService from '@/services/QuoteService'
+import QuoteInfo from '@/components/QuoteInfo'
 
 export default {
   name: 'GeneratorPage',
+  components: {
+    QuoteInfo
+  },
   data () {
     return {
       header: 'Quotable Password Generator',
       subHeader: 'Generate secure passwords using quotable sentences',
-      quote: null
+      entry: null
     }
   },
   methods: {
     setQuote: function () {
       let self = this
-      self.quote = QuoteService.get()
+      self.entry = QuoteService.get()
     }
   },
   mounted: function () {
@@ -65,4 +72,9 @@ h1 {
 .quotablepassword {
   margin-top: 2em;
 }
+
+.quote-info {
+  margin-top: 3em;
+}
+
 </style>
