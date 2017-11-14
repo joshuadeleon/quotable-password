@@ -6,7 +6,7 @@ function getExtremeValues () {
   var min = Number.MAX_VALUE
   var max = Number.MIN_VALUE
   quotes.forEach(function (value) {
-    let length = value.quoteText.length
+    let length = value.length
     if (min > length) {
       min = length
     }

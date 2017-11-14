@@ -7,7 +7,7 @@
     </div>
     <div class="columns is-pulled-right">
       <div class="column">
-        &mdash; {{ entry.author }}
+        &mdash; {{ getAuthor }}
       </div>
     </div>
   </div>
@@ -17,6 +17,11 @@
 
 export default {
   name: 'QuoteInfo',
-  props: ['entry']
+  props: ['entry'],
+  computed: {
+    getAuthor: function () {
+      return (this.entry.author === '') ? 'Anonymous' : this.entry.author
+    }
+  }
 }
 </script>

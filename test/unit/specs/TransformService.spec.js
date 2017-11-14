@@ -89,3 +89,21 @@ describe('randomLeet', () => {
     leetWord.should.match(/@/)
   })
 })
+
+// randomCapitalize
+describe('randomCapitalize', () => {
+  it('capitalizes character when randomPercent is 1', () => {
+    service.randomCapitalize('a', 1).should.equal('A')
+  })
+})
+
+describe('randomCapitalize', () => {
+  it('captializes at least one character of 10 character word when randomPercent is 0.5', () => {
+    let word = 'aaaaaaaaaa'
+    var randomCapitals = ''
+    for (let char of word) {
+      randomCapitals += service.randomCapitalize(char, 0.5)
+    }
+    randomCapitals.should.match(/A/)
+  })
+})
